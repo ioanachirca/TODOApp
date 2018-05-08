@@ -1,0 +1,24 @@
+<html>
+    <head>  
+        <script>
+            function fun(){
+                if(document.getElementById("inpt").value != ""){
+                    var x = document.createElement("li");
+                    var a = document.getElementById("inpt").value;
+                    var t = document.createTextNode(a);
+                    x.appendChild(t);
+                    document.getElementById("add").appendChild(x);
+                    document.getElementById("inpt").value = "";
+
+                }
+          }    
+        </script>
+    </head>
+    <body>
+        <ul id="add">
+           
+        </ul>
+        <input id="inpt" type="text"\>
+        <button onclick="fun();">+</button>
+    </body>
+</html>
