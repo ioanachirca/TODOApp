@@ -7,8 +7,21 @@
       :host {
         display: block;
       }
+      h2 {
+        color: red;
+      }
+      my-element {
+        --my-color: blue;
+        --div-mixin:{
+          color:white;
+          font-size: 40px;
+        }
+      }
     </style>
     <h2>Hello [[prop1]]!</h2>
+    <button id="btn">cl</button>
+    <my-element></my-element>
+
     <my-element></my-element>
   </template>
 

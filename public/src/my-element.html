@@ -4,6 +4,17 @@
               hi
 
           </template>
+          <style>
+              span, p{
+                  color:var(--my-color, green);
+                  border: 2px solid var(--my-color);
+              }
+              div{
+                  background: blue;
+                
+              }
+          </style>
+          
           <script>
               class MyElement extends Polymer.Element{
                   static get is(){return 'my-element'};
