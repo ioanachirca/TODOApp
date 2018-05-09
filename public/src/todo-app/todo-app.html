@@ -2,6 +2,7 @@
 <link rel="import" href="../my-element.html">
 
 <dom-module id="todo-app">
+  /*fsdfds*/
   <template>
     <style>
       :host {
@@ -19,7 +20,7 @@
       }
     </style>
     <h2>Hello [[prop1]]!</h2>
-    <button id="btn" onclick="alt();">cl</button>
+ 
     <my-element></my-element>
 
 
@@ -27,20 +28,7 @@
   </template>
 
   <script>
-      function fun(){
-        if(document.getElementById("inpt").value != ""){
-            var x = document.createElement("li");
-            var a = document.getElementById("inpt").value;
-            var t = document.createTextNode(a);
-            x.appendChild(t);
-            document.getElementById("add").appendChild(x);
-            document.getElementById("inpt").value = "";
-
-        }else{
-          console.log("dafa");
-        }
-}    
-
+   
     /**
      * @customElement
      * @polymer

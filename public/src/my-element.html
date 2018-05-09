@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
       <dom-module id="my-element">
           <template>
+
                 <ul id="add">
                         <li>fdsf</li>        
                       </ul>
@@ -23,6 +24,7 @@
               class MyElement extends Polymer.Element{
                   static get is(){return 'my-element'};
               }
+              
               window.customElements.define(MyElement.is, MyElement)
           </script>
       </dom-module>
