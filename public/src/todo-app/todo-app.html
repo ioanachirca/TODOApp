@@ -1,19 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
-<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
-<link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
-<link rel="import" href="../my-element.html">
+<link rel="import" href="../todo-thing.html">
 
 <dom-module id="todo-app">
+
   <template>
     <style>
       :host {
         display: block;
       }
       h2 {
+        align: center;
         color: red;
       }
       my-element {
+        align: center;
         --my-color: blue;
         --div-mixin:{
           color:white;
@@ -21,28 +21,9 @@
         }
       }
     </style>
-    <firebase-app
-    auth-domain="todoapp-c3bc9.firebaseapp.com",
-    database-url="https://todoapp-c3bc9.firebaseio.com"
-    api-key="AIzaSyD4OgG3FWiMftWH97NQPHkEQZfswZdfPxc"
-    storage-bucket="todoapp-c3bc9.appspot.com"
-    messaging-sender-id="386223511482">
-  </firebase-app>
-
-  <firebase-document path="todo/231" data="{{myDoc}}">
-    {{myDoc.name}}
-  </firebase-document>
-
-  <firebase-query path="todo" data="{{myTodos}}">
-    {{myTodos}}
-  </firebase-query>
-  <template is="dom-repeat" items="{{myTodos}}">
-    hi
-  </template>
-
-    <h2>Hello [[prop1]]!</h2>
+    <h2>[[prop1]]</h2>
  
-    <my-element></my-element>
+    <todo-thing></todo-thing>
 
 
     
@@ -62,7 +43,7 @@
         return {
           prop1: {
             type: String,
-            value: 'todo-app'
+            value: 'TODO-app'
           }
         };
       }
