@@ -1,8 +1,10 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="../my-element.html">
 
 <dom-module id="todo-app">
-  /*fsdfds*/
   <template>
     <style>
       :host {
@@ -19,6 +21,25 @@
         }
       }
     </style>
+    <firebase-app
+    auth-domain="todoapp-c3bc9.firebaseapp.com",
+    database-url="https://todoapp-c3bc9.firebaseio.com"
+    api-key="AIzaSyD4OgG3FWiMftWH97NQPHkEQZfswZdfPxc"
+    storage-bucket="todoapp-c3bc9.appspot.com"
+    messaging-sender-id="386223511482">
+  </firebase-app>
+
+  <firebase-document path="todo/231" data="{{myDoc}}">
+    {{myDoc.name}}
+  </firebase-document>
+
+  <firebase-query path="todo" data="{{myTodos}}">
+    {{myTodos}}
+  </firebase-query>
+  <template is="dom-repeat" items="{{myTodos}}">
+    hi
+  </template>
+
     <h2>Hello [[prop1]]!</h2>
  
     <my-element></my-element>
@@ -26,6 +47,8 @@
 
     
   </template>
+
+  
 
   <script>
    
@@ -42,6 +65,13 @@
             value: 'todo-app'
           }
         };
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        firebase.database().ref("todo").on("value", (snap)=>(
+          console.log(snap.val())
+        ))
       }
     }
 
