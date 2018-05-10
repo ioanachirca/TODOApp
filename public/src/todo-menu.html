@@ -1,0 +1,84 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="todo-menu">
+    <template>
+        <div class="dropdown">
+            <button on-click="createList" class="dropbtn">New TODO List</button>
+            <div id="myDropdown" class="dropdown-content">
+                    <p>entry 1</p>
+                    <p>entry 2</p>
+                    <button class="btn save_list">Save</button>
+            </div>
+        </div>
+
+
+        <style>
+
+            /* Dropdown Button */
+            .dropbtn {
+                background-color: #3498DB;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown button on hover & focus */
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: #2980B9;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .show {display:block;}
+                        
+        </style>
+
+    </template>
+
+    <script>
+        class TodoMenu extends Polymer.Element{
+                static get is(){return 'todo-menu'};
+                constructor () {
+                    super();
+                };
+                createList () {
+                    this.$.myDropdown.classList.toggle("show");
+                }
+            }
+              
+        window.customElements.define(TodoMenu.is, TodoMenu);
+
+        /*window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                console.log("outside");
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            } else {
+                console.log("inside");
+            }
+        }*/
+        
+    </script>
+</dom-module>
