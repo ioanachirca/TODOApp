@@ -1,17 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../my-element.html">
+<link rel="import" href="../todo-thing.html">
 
 <dom-module id="todo-app">
-  /*fsdfds*/
+
   <template>
     <style>
       :host {
         display: block;
       }
       h2 {
+        align: center;
         color: red;
       }
       my-element {
+        align: center;
         --my-color: blue;
         --div-mixin:{
           color:white;
@@ -19,9 +21,9 @@
         }
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <h2>[[prop1]]</h2>
  
-    <my-element></my-element>
+    <todo-thing></todo-thing>
 
 
     
@@ -39,7 +41,7 @@
         return {
           prop1: {
             type: String,
-            value: 'todo-app'
+            value: 'TODO-app'
           }
         };
       }

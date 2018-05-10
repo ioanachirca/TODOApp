@@ -1,0 +1,70 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+      
+    <dom-module id="todo-thing">
+          <template>
+
+            <ul id="unorderedList"></ul>
+      
+            <input id="inpt"  placeholder="to-do" value="" type="text"\>
+            <button on-tap="fun">+</button>
+                
+          </template>
+          <style>
+              span, p{
+                  color:var(--my-color, green);
+                  border: 2px solid var(--my-color);
+              }
+              div{
+                  background: blue;
+                
+              }
+          </style>
+          
+          <script>
+
+             Polymer({
+
+                is: 'todo-thing',
+
+                fun: function() {
+                    if(this.$.inpt.value != ""){
+
+                        var newElement = document.createElement("li");
+                        newElement.appendChild(document.createTextNode(this.$.inpt.value));
+                        this.$.unorderedList.appendChild(newElement);  
+                    /*
+                        var btn = document.createElement("button");    
+                        btn.appendChild(document.createTextNode("-"));
+                        btn.setAttribute("on-tap","delete"); 
+                        btn.setAttribute("id", document.getElementsByTagName("li").length);
+                        newElement.appendChild(btn);
+                   */ 
+                    
+                        var chk = document.createElement("input");    
+                        chk.type = "checkbox";
+                        chk.id = document.getElementsByTagName("li").length;
+                        newElement.appendChild(chk);
+
+                        this.$.inpt.value = ""; 
+                        
+
+                        
+                     
+                            
+                    }
+                    else{
+                        alert("Empty field");
+                    }
+                }, 
+                delete: function(){
+                    console.log("vgfdgfdg");
+                    var list = this.$.document.getElementById("unorderedList");   // Get the <ul> element with id="myList"
+                    list.removeChild(list.childNodes[list.id-1]); 
+                    console.log("vgfdgfdg");
+                }
+
+                
+            });
+
+          </script>
+      </dom-module>
