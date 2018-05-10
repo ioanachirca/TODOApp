@@ -29,6 +29,8 @@
     
   </template>
 
+  
+
   <script>
    
     /**
@@ -44,6 +46,13 @@
             value: 'TODO-app'
           }
         };
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        firebase.database().ref("todo").on("value", (snap)=>(
+          console.log(snap.val())
+        ))
       }
     }
 
