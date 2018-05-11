@@ -79,7 +79,7 @@
                     }
                 }, 
                 del: function(inx){
-                    var len = document.getElementsByTagName("li").length;
+                    var len = this.$.unorderedList.childNodes.length;
                     console.log(len);
                     this.$.unorderedList.removeChild(this.$.unorderedList.childNodes[len-1]);    ;
 
