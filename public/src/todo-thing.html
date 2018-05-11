@@ -2,7 +2,32 @@
       
     <dom-module id="todo-thing">
           <template>
-
+                <style>
+                        span, p{
+                            color:var(--my-color, green);
+                            border: 2px solid var(--my-color);
+                        }
+                        #addButtton {
+                          background-color: #64ff64;
+                          color: white;            
+                          border-radius: 10px;
+                          padding: 4px 10px;
+                          border: 1px solid black;
+                        }
+                        #inpt {
+                          border-radius: 10px;
+                          padding: 4px 10px;
+                          border: 1px solid black;
+                        }
+                        #delButton {
+                          background-color: #ff6e58;
+                          color: white; 
+                          border-radius: 10px;
+                          padding: 4px 10px;
+                          border: 1px solid black;       
+                        }
+          
+                    </style>
             <div id="odstavek">
                 <ul id="unorderedList"></ul>
             </div>
@@ -15,32 +40,7 @@
             </div>
                 
           </template>
-          <style>
-              span, p{
-                  color:var(--my-color, green);
-                  border: 2px solid var(--my-color);
-              }
-              #addButtton {
-                background-color: #64ff64;
-                color: white;            
-                border-radius: 10px;
-                padding: 4px 10px;
-                border: 1px solid black;
-              }
-              #inpt {
-                border-radius: 10px;
-                padding: 4px 10px;
-                border: 1px solid black;
-              }
-              #delButton {
-                background-color: #ff6e58;
-                color: white; 
-                border-radius: 10px;
-                padding: 4px 10px;
-                border: 1px solid black;       
-              }
 
-          </style>
           
           <script>
 
