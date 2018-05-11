@@ -3,10 +3,16 @@
     <dom-module id="todo-thing">
           <template>
 
-            <ul id="unorderedList"></ul>
+            <div id="odstavek">
+                <ul id="unorderedList"></ul>
+            </div>
+           
       
-            <input id="inpt"  placeholder="to-do" value="" type="text"\>
-            <button on-tap="fun">+</button>
+            <div>
+                <input id="inpt"  placeholder="to-do" value="" type="text"\>
+                <button id="addButtton" on-tap="fun">add</button>
+                <button id="delButton" on-tap="del">delete</button>
+            </div>
                 
           </template>
           <style>
@@ -14,10 +20,26 @@
                   color:var(--my-color, green);
                   border: 2px solid var(--my-color);
               }
-              div{
-                  background: blue;
-                
+              #addButtton {
+                background-color: #64ff64;
+                color: white;            
+                border-radius: 10px;
+                padding: 4px 10px;
+                border: 1px solid black;
               }
+              #inpt {
+                border-radius: 10px;
+                padding: 4px 10px;
+                border: 1px solid black;
+              }
+              #delButton {
+                background-color: #ff6e58;
+                color: white; 
+                border-radius: 10px;
+                padding: 4px 10px;
+                border: 1px solid black;       
+              }
+
           </style>
           
           <script>
@@ -56,11 +78,13 @@
                         alert("Empty field");
                     }
                 }, 
-                delete: function(){
-                    console.log("vgfdgfdg");
-                    var list = this.$.document.getElementById("unorderedList");   // Get the <ul> element with id="myList"
-                    list.removeChild(list.childNodes[list.id-1]); 
-                    console.log("vgfdgfdg");
+                del: function(inx){
+                    var len = document.getElementsByTagName("li").length;
+                    console.log(len);
+                    this.$.unorderedList.removeChild(this.$.unorderedList.childNodes[len-1]);    ;
+
+                    console.log("done");
+        
                 }
 
                 
