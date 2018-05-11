@@ -47,24 +47,38 @@
              Polymer({
 
                 is: 'todo-thing',
-
+                properties: {
+                    totalNumber:{
+                        type: Number,
+                        value: 0,
+                        notify: true
+                    },
+                    doneNumber:{
+                        type: Number,
+                        value: 0,
+                        notify: true
+                    }
+                },
                 fun: function() {
                     if(this.$.inpt.value != ""){
 
                         var newElement = document.createElement("li");
                         newElement.appendChild(document.createTextNode(this.$.inpt.value));
                         this.$.unorderedList.appendChild(newElement);  
-                    /*
-                        var btn = document.createElement("button");    
-                        btn.appendChild(document.createTextNode("-"));
-                        btn.setAttribute("on-tap","delete"); 
-                        btn.setAttribute("id", document.getElementsByTagName("li").length);
-                        newElement.appendChild(btn);
-                   */ 
+                        this.set("totalNumber", this.totalNumber+1);
                     
                         var chk = document.createElement("input");    
                         chk.type = "checkbox";
                         chk.id = document.getElementsByTagName("li").length;
+                        chk.onclick = (function(e){
+                                console.log() 
+                                if(e.target.checked)     {
+                                    this.set("doneNumber",this.doneNumber+1);
+                                }                      else{
+                                    
+                                    this.set("doneNumber",this.doneNumber-1);
+                                }
+                        }).bind(this);
                         newElement.appendChild(chk);
 
                         this.$.inpt.value = ""; 
@@ -82,13 +96,18 @@
                     var len = this.$.unorderedList.childNodes.length;
                     console.log(len);
                     this.$.unorderedList.removeChild(this.$.unorderedList.childNodes[len-1]);    ;
-
+  
+                    this.set("totalNumber", this.totalNumber-1);
                     console.log("done");
         
+                },
+
+                checkboxes: function() {
+                    //this.set("doneNumber", this.doneNumber+1);
+                    console.log("bchwg807");
                 }
 
                 
             });
-
           </script>
       </dom-module>

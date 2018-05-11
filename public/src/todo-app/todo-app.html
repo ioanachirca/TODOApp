@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../todo-thing.html">
+<link rel="import" href="../counter-thing.html">
 
 <dom-module id="todo-app">
 
@@ -20,8 +21,8 @@
 
     <h2>[[prop1]]</h2>
  
-    <todo-thing></todo-thing>
-
+    <todo-thing total-number="{{tn}}" done-number="{{dn}}"></todo-thing>
+    <counter-thing checked-els="{{tn}}" done-els="{{dn}}"></counter-thing>
 
     
   </template>
